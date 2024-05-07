@@ -13,8 +13,7 @@
     "clean": "turbo clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
-    "version-packages": "changeset version",
-    "release": "turbo build --filter=packages^... && changeset publish"
+    "publish-packages": "turbo run build --filter=@suyalcinkaya/gauge && changeset version && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
