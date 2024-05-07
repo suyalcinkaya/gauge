@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --sh-class: #2d5e9d; */
+    --sh-identifier: #171717;
+    --sh-sign: #8996a3;
+    --sh-property: hsl(278.93deg 100% 36.12%);
+    --sh-entity: hsl(210.8deg 100% 38.9%);
+    --sh-jsxliterals: #6266d1;
+    --sh-string: hsl(138.58deg 77.94% 27.65%);
+    --sh-keyword: rgb(215, 58, 73);
+    --sh-comment: #a19595;
+  }
+
+  * {
+    @apply min-w-0;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    -webkit-text-size-adjust: auto;
+    @apply min-h-svh overflow-x-clip bg-gray-50 font-sans antialiased;
+  }
+
+  .sh__line {
+    @apply relative inline-block w-full;
+  }
+
+  pre {
+    @apply min-w-max overflow-x-auto whitespace-nowrap break-normal bg-white py-5 pr-4 text-left text-xs sm:text-sm;
+  }
+
+  pre code {
+    @apply whitespace-pre-wrap;
+  }
+
+  pre:is(.show-line-numbers) code {
+    counter-reset: sh-line-number;
+  }
+
+  pre:is(.show-line-numbers) code .sh__line {
+    @apply px-4;
+  }
+
+  pre:is(.show-line-numbers) {
+    @apply px-0;
+  }
+
+  pre.show-line-numbers > code > .sh__line::before {
+    counter-increment: sh-line-number 1;
+    content: counter(sh-line-number);
+    @apply mr-6 inline-block w-5 text-right tabular-nums text-gray-400;
+  }
+
+  details > summary {
+    @apply list-none text-gray-600;
+  }
+
+  details > summary::-webkit-details-marker {
+    @apply hidden;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-semibold tracking-tighter;
+  }
+
+  h1 {
+    @apply mb-4 text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply mb-4 text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply mb-1;
+  }
+}
+
+@layer components {
+  .subtitle {
+    @apply mb-4 leading-relaxed text-gray-600;
+  }
+
+  .inline-code {
+    @apply inline-block rounded-md border bg-gray-100 px-1 font-mono text-sm not-italic text-gray-600;
+  }
+}

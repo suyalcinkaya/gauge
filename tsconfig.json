@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "es2018",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "lib": ["es2016", "dom"]
+  },
+  "include": ["src"]
+}
