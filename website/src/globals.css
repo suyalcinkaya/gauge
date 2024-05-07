@@ -29,7 +29,7 @@
   }
 
   .sh__line {
-    @apply relative inline-block w-full;
+    @apply relative;
   }
 
   pre {
@@ -56,14 +56,6 @@
     counter-increment: sh-line-number 1;
     content: counter(sh-line-number);
     @apply mr-6 inline-block w-5 text-right tabular-nums text-gray-400;
-  }
-
-  details > summary {
-    @apply list-none text-gray-600;
-  }
-
-  details > summary::-webkit-details-marker {
-    @apply hidden;
   }
 
   h1,

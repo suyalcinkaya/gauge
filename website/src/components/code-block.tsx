@@ -15,10 +15,8 @@ interface CodeBlockProps {
   fileName?: string
   highlightedLinesNumbers?: (1 | 6 | 7 | 8)[]
   showLineNumbers?: boolean
-  preClassName?: string
   wrapperClassName?: string
   componentWrapperClassName?: string
-  showCode?: boolean
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
@@ -27,12 +25,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   fileName,
   highlightedLinesNumbers,
   showLineNumbers = true,
-  preClassName,
   wrapperClassName,
-  componentWrapperClassName,
-  showCode = false
+  componentWrapperClassName
 }) => {
-  const [isOpened, setIsOpened] = useState(showCode)
+  const [isOpened, setIsOpened] = useState(false)
   const [copied, setCopied] = useState(false)
   const codeHTML = highlight(code)
 
@@ -48,12 +44,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   }
 
   const Code = () => {
-    if (!codeHTML) return null
-
     return (
-      <div className="group/code-block relative isolate cursor-copy" onClick={onCopy}>
+      <div className="group/code-block relative cursor-copy" onClick={onCopy}>
         <ScrollArea className="whitespace-nowrap">
-          <pre className={cn('overflow-y-clip', showLineNumbers ? 'show-line-numbers' : 'pl-4', preClassName)}>
+          <pre className={cn('overflow-y-clip', showLineNumbers ? 'show-line-numbers' : 'pl-4')}>
             <code
               className={cn(
                 highlightedLinesNumbers?.includes(1) &&
@@ -92,13 +86,16 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             <ScrollBar orientation="horizontal" />
           </ScrollArea>
           {code && (
-            <details open={isOpened} onToggle={(e) => setIsOpened(e.currentTarget.open)}>
-              <summary className="flex cursor-pointer select-none items-center gap-2 bg-gray-50 px-4 py-3 text-sm">
+            <div>
+              <div
+                className="flex cursor-pointer select-none items-center gap-2 bg-gray-50 px-4 py-3 text-sm text-gray-600"
+                onClick={() => setIsOpened(!isOpened)}
+              >
                 {isOpened ? <ChevronDownIcon size={14} /> : <ChevronRightIcon size={14} />}
                 {isOpened ? 'Hide code' : 'Show code'}
-              </summary>
-              <Code />
-            </details>
+              </div>
+              {isOpened && <Code />}
+            </div>
           )}
         </>
       ) : (
