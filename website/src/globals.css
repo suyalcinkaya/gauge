@@ -33,11 +33,11 @@
   }
 
   pre {
-    @apply min-w-max overflow-x-auto whitespace-nowrap break-normal bg-white py-5 pr-4 text-left text-xs sm:text-sm;
+    @apply min-w-max bg-white py-5 pr-4;
   }
 
   pre code {
-    @apply whitespace-pre-wrap;
+    @apply grid whitespace-pre break-normal text-left font-mono !text-[13px];
   }
 
   pre:is(.show-line-numbers) code {

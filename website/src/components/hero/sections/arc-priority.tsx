@@ -9,29 +9,6 @@ const midValue = 50
 const gap = 8
 
 export const ArcPriority = () => {
-  const [gaugeValue, setGaugeValue] = useState(midValue)
-  const [showAnimation, setShowAnimation] = useState(false)
-
-  useEffect(() => {
-    let value = midValue + gap
-    let direction = 1
-
-    const interval = setInterval(() => {
-      setGaugeValue(value)
-      if (!showAnimation) setShowAnimation(true)
-
-      if (value === midValue + gap) {
-        direction = -1
-      } else if (value === midValue - gap) {
-        direction = 1
-      }
-
-      value += direction * gap
-    }, 1500)
-
-    return () => clearInterval(interval)
-  }, [])
-
   return (
     <>
       <h2>Arc priority</h2>
@@ -82,28 +59,56 @@ export function Component(): JSX.Element {
           </div>
         }
       />
-
       <p className="subtitle mt-8">
         In the following example, the Gauge will loop the value between 42, 50 and 58 every 1.5 seconds for easy
         understanding.
       </p>
-
-      <CodeBlock
-        // fileName="Demo"
-        component={
-          <Gauge
-            value={gaugeValue}
-            size="xl"
-            primary="#2563eb"
-            secondary="#ef4444"
-            variant="ascending"
-            showValue
-            showAnimation={showAnimation}
-          />
-        }
-        wrapperClassName="mt-4"
-        componentWrapperClassName="flex items-center justify-center"
-      />
+      <Example />
     </>
   )
 }
+
+const Example = () => {
+  const [gaugeValue, setGaugeValue] = useState(midValue)
+  const [showAnimation, setShowAnimation] = useState(false)
+
+  useEffect(() => {
+    let value = midValue + gap
+    let direction = 1
+
+    const interval = setInterval(() => {
+      setGaugeValue(value)
+      if (!showAnimation) setShowAnimation(true)
+
+      if (value === midValue + gap) {
+        direction = -1
+      } else if (value === midValue - gap) {
+        direction = 1
+      }
+
+      value += direction * gap
+    }, 1500)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <CodeBlock
+      // fileName="Demo"
+      component={
+        <Gauge
+          value={gaugeValue}
+          size="xl"
+          primary="#2563eb"
+          secondary="#ef4444"
+          variant="ascending"
+          showValue
+          showAnimation={showAnimation}
+        />
+      }
+      wrapperClassName="mt-4"
+      componentWrapperClassName="flex items-center justify-center"
+    />
+  )
+}
+Example.displayName = 'Example'

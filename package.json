@@ -26,6 +26,7 @@
     "type-check": "tsc --noEmit",
     "build": "bunchee",
     "dev": "bunchee --watch",
+    "turbo-dev": "turbo dev",
     "dev:website": "turbo run dev --filter=website...",
     "format": "prettier --write ."
   },
