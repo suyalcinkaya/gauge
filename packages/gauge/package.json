@@ -1,0 +1,65 @@
+{
+  "name": "@suyalcinkaya/gauge",
+  "version": "0.1.0",
+  "description": "An aesthetic and customizable circular visual component for React.",
+  "author": {
+    "name": "Onur Şuyalçınkaya",
+    "url": "https://onur.dev"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "build": "bunchee",
+    "dev": "bunchee --watch",
+    "dev:website": "turbo run dev --filter=website...",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "react",
+    "gauge",
+    "circular",
+    "progress",
+    "chart",
+    "percentage",
+    "progress bar",
+    "progress circle",
+    "pie"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suyalcinkaya/gauge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/suyalcinkaya/gauge/issues"
+  },
+  "devDependencies": {
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.18",
+    "bunchee": "^5.1.5",
+    "eslint": "^7.32.0",
+    "prettier": "^3.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "react": "^16.8 || ^17.0 || ^18.0",
+    "react-dom": "^16.8 || ^17.0 || ^18.0"
+  }
+}

@@ -1,71 +1,26 @@
 {
-  "name": "@suyalcinkaya/gauge",
-  "version": "0.1.0",
-  "description": "An aesthetic and customizable circular visual component for React.",
+  "private": true,
+  "name": "gauge-repo",
+  "license": "MIT",
   "author": {
     "name": "Onur Şuyalçınkaya",
     "url": "https://onur.dev"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    "import": {
-      "types": "./dist/index.d.mts",
-      "default": "./dist/index.mjs"
-    },
-    "require": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
-    }
-  },
   "scripts": {
-    "type-check": "tsc --noEmit",
-    "build": "bunchee",
-    "dev": "bunchee --watch",
-    "turbo-dev": "turbo dev",
-    "dev:website": "turbo run dev --filter=website...",
-    "format": "prettier --write ."
-  },
-  "keywords": [
-    "react",
-    "gauge",
-    "circular",
-    "progress",
-    "chart",
-    "percentage",
-    "progress bar",
-    "progress circle",
-    "pie"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/suyalcinkaya/gauge.git"
-  },
-  "bugs": {
-    "url": "https://github.com/suyalcinkaya/gauge/issues"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "clean": "turbo clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo build --filter=packages^... && changeset publish"
   },
   "devDependencies": {
-    "@types/react": "18.2.18",
-    "@types/react-dom": "18.2.18",
-    "bunchee": "^5.1.5",
-    "eslint": "^7.32.0",
+    "@changesets/cli": "^2.27.1",
+    "eslint": "^8.57.0",
     "prettier": "^3.2.5",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "turbo": "^1.13.3",
-    "typescript": "^5.4.5"
+    "turbo": "^1.12.4"
   },
-  "peerDependencies": {
-    "react": "^16.8 || ^17.0 || ^18.0",
-    "react-dom": "^16.8 || ^17.0 || ^18.0"
-  },
-  "packageManager": "pnpm@9.0.6",
-  "workspaces": [
-    "./*"
-  ]
+  "packageManager": "pnpm@9.0.6"
 }
