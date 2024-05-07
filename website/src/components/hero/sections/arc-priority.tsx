@@ -30,29 +30,29 @@ export function Component(): JSX.Element {
   )
 }`}
         component={
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 lg:justify-center">
             <div
-              className={`relative size-32 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
+              className={`relative size-32 overflow-x-clip p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
             >
               <Gauge size="100%" value={48.3} primary="#2563eb" secondary="#ef4444" showValue />
             </div>
             <div
-              className={`relative size-32 rounded-lg border border-blue-200 bg-blue-50 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
+              className={`relative size-32 overflow-x-clip rounded-lg border border-blue-200 bg-blue-50 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
             >
               <Gauge size="100%" value={49.3} primary="#2563eb" secondary="#ef4444" showValue />
             </div>
             <div
-              className={`relative size-32 rounded-lg border border-blue-200 bg-blue-50 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
+              className={`relative size-32 overflow-x-clip rounded-lg border border-blue-200 bg-blue-50 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
             >
               <Gauge size="100%" value={50} primary="#2563eb" secondary="#ef4444" showValue />
             </div>
             <div
-              className={`relative size-32 rounded-lg border border-blue-200 bg-blue-50 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
+              className={`relative size-32 overflow-x-clip rounded-lg border border-blue-200 bg-blue-50 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
             >
               <Gauge size="100%" value={50.8} primary="#2563eb" secondary="#ef4444" showValue />
             </div>
             <div
-              className={`relative size-32 p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
+              className={`relative size-32 overflow-x-clip p-4 after:absolute after:left-0 after:top-[-25%] after:-ml-[0.5px] after:h-screen after:w-full after:translate-x-1/2 after:border-l-[1px] after:border-dashed after:border-gray-300 after:content-[""]`}
             >
               <Gauge size="100%" value={51.6} primary="#2563eb" secondary="#ef4444" showValue />
             </div>
