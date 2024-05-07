@@ -33,7 +33,7 @@
   }
 
   pre {
-    @apply min-w-max bg-white py-5 pr-4;
+    @apply min-w-max bg-white py-5 pr-4 !text-[13px];
   }
 
   pre code {
