@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { Button } from '@/components/ui/button'
 import { playgroundSectionId } from '@/lib/constants'
 
@@ -12,6 +14,9 @@ export const Introduction = () => {
           <a href={`#${playgroundSectionId}`}>Playground</a>
         </Button>
         <Button variant="outline" asChild>
+          <Link href="/api">API</Link>
+        </Button>
+        <Button variant="secondary" asChild>
           <a href="https://github.com/suyalcinkaya/gauge" target="_blank" rel="noopener noreferrer">
             GitHub
           </a>

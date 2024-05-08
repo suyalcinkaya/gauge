@@ -1,6 +1,10 @@
 {
   "name": "website",
   "version": "0.1.0",
+  "author": {
+    "name": "Onur Şuyalçınkaya",
+    "url": "https://onur.dev"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

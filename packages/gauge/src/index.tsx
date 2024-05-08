@@ -15,16 +15,17 @@ import type { GaugeProps, Size } from './index.types'
 
 /**
  * Renders a circular gauge using SVG. Allows configuration of colors, stroke, and animations.
+ *
  * @param value - Current value of the gauge, expressed as a percentage.
- * @param size = Width and height of the gauge. Defaults to 'md'.
- * @param gapPercent -  Percentage of the total circumference that represents a gap in the gauge. Defaults to 5%.
+ * @param size - Width and height of the gauge. Defaults to 'md'.
+ * @param gapPercent - Percentage of the total circumference that represents a gap in the gauge. Defaults to 5%.
  * @param strokeWidth - Stroke width of the gauge. Defaults to 10px.
  * @param variant - Direction of the gauge's animation. Defaults to 'ascending'.
  * @param showValue - Option to display the numeric value inside the gauge. Defaults to false.
  * @param showAnimation - Option to animate the gauge's progress. Defaults to false.
  * @param primary - Primary color or set of colors for the gauge, with optional threshold values to determine color changes.
  * @param secondary - Secondary color or set of colors for the gauge, similar to `primary`.
- * @param props Configuration and properties for the svg.
+ * @param props - Configuration and properties for the svg.
  */
 export function Gauge({
   value,

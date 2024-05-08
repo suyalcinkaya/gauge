@@ -16,7 +16,7 @@ export const ReactServerComponents = () => {
       </p>
       <CodeBlock
         highlightedLinesNumbers={[1]}
-        fileName="Component.tsx"
+        fileName="src/components/component.tsx"
         wrapperClassName="rounded-xl"
         code={`'use client'
             
