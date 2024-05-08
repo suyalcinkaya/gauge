@@ -16,7 +16,7 @@ import { playgroundSectionId } from '@/lib/constants'
 const sections: SectionProps[] = [
   {
     children: <Introduction />,
-    sparklePosition: 'top-left'
+    sparklePositions: ['top-left']
   },
   {
     children: <Installation />
@@ -35,11 +35,11 @@ const sections: SectionProps[] = [
   },
   {
     children: <Animation />,
-    sparklePosition: 'top-right'
+    sparklePositions: ['top-right']
   },
   {
     children: <DefaultColorScale />,
-    sparklePosition: 'top-left'
+    sparklePositions: ['top-left']
   },
   {
     children: <CustomColorScale />
@@ -49,13 +49,13 @@ const sections: SectionProps[] = [
   },
   {
     children: <ArcPriority />,
-    sparklePosition: 'bottom-left'
+    sparklePositions: ['bottom-left']
   },
   {
     id: playgroundSectionId,
     children: <Playground />,
-    useDivider: false,
-    sparklePosition: 'bottom-right'
+    useBottomDivider: false,
+    sparklePositions: ['bottom-right']
   }
 ]
 

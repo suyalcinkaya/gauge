@@ -60,8 +60,8 @@ export function Component(): JSX.Element {
         }
       />
       <p className="subtitle mt-8">
-        In the following example, the Gauge will loop the value between 42, 50 and 58 every 1.5 seconds for easy
-        understanding.
+        In the following example, the Gauge will loop through the values 42, 50, and 58 every 1.5 seconds to make it
+        easier to visualize.
       </p>
       <Example />
     </>

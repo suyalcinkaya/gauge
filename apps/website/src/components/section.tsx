@@ -3,19 +3,31 @@ import { cn } from '@/lib/utils'
 
 export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode
-  sparklePosition?: Position
-  useDivider?: boolean
+  sparklePositions?: Position[]
+  useTopDivider?: boolean
+  useBottomDivider?: boolean
   className?: string
 }
 
-export const Section = ({ children, sparklePosition, useDivider = true, className, ...props }: SectionProps) => {
+export const Section = ({
+  children,
+  sparklePositions = [],
+  useTopDivider = false,
+  useBottomDivider = true,
+  className,
+  ...props
+}: SectionProps) => {
   return (
     <>
-      <section className={cn('border-b p-4 sm:p-12', sparklePosition && 'relative', className)} {...props}>
-        {sparklePosition && <SparkleSvg position={sparklePosition} />}
+      {useTopDivider && <div className="h-4 border-b" />}
+      <section className={cn('border-b p-4 sm:p-12', sparklePositions.length > 0 && 'relative', className)} {...props}>
         {children}
+        {sparklePositions.length > 0 &&
+          sparklePositions.map((sparklePosition, index) => {
+            return <SparkleSvg key={`sparkle_${index}`} position={sparklePosition} />
+          })}
       </section>
-      {useDivider && <div className="h-4 border-b" />}
+      {useBottomDivider && <div className="h-4 border-b" />}
     </>
   )
 }

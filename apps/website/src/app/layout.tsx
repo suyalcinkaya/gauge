@@ -13,8 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
-      <body suppressHydrationWarning>
-        <main className="mx-2 my-16 max-w-5xl border-x border-t bg-white lg:mx-auto">{children}</main>
+      <body className="flex flex-col" suppressHydrationWarning>
+        <main className="flex-1">
+          <div className="mx-2 my-16 max-w-5xl border-x border-t bg-white lg:mx-auto">{children}</div>
+        </main>
         <footer className="border-t bg-gray-100">
           <div className="mx-auto max-w-5xl px-4 py-8 text-sm lg:px-0">
             <p>
