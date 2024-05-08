@@ -61,7 +61,8 @@ export const metadata: Metadata = {
     url: 'https://gauge.onur.dev',
     siteName: 'Gauge',
     locale: 'en-US',
-    type: 'website'
+    type: 'website',
+    images: '/og-image.png'
   },
   keywords: ['react', 'gauge', 'circular', 'progress', 'chart', 'percentage', 'progress bar', 'progress circle', 'pie'],
   twitter: {
