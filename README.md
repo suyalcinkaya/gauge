@@ -1,3 +1,5 @@
+![screenshot](apps/website/src/app/opengraph-image.png)
+
 # Gauge [![@suyalcinkaya/gauge minzip package size](https://img.shields.io/bundlephobia/minzip/@suyalcinkaya/gauge)](https://www.npmjs.com/package/@suyalcinkaya/gauge?activeTab=code) [![@suyalcinkaya/gauge package version](https://img.shields.io/npm/v/@suyalcinkaya/gauge.svg?colorB=green)](https://www.npmjs.com/package/@suyalcinkaya/gauge) ![GitHub License](https://img.shields.io/github/license/suyalcinkaya/gauge)
 
 [Gauge](https://gauge.onur.dev/) is an aesthetic and customizable circular visual component for React.
