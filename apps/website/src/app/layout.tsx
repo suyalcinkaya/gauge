@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     siteName: 'Gauge',
     locale: 'en-US',
     type: 'website',
-    images: '/og-image.png'
+    images: `${process.env.NEXT_PUBLIC_URL}/og-image.png`
   },
   keywords: ['react', 'gauge', 'circular', 'progress', 'chart', 'percentage', 'progress bar', 'progress circle', 'pie'],
   twitter: {
