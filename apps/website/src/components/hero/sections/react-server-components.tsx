@@ -14,11 +14,12 @@ export const ReactServerComponents = () => {
         </Button>
         &nbsp;at the top of a file, above your imports.
       </p>
-      <CodeBlock
-        highlightedLinesNumbers={[1]}
-        fileName="src/components/component.tsx"
-        wrapperClassName="rounded-xl"
-        code={`'use client'
+      <div className="flex flex-col gap-4">
+        <CodeBlock
+          highlightedLinesNumbers={[1]}
+          fileName="src/components/component.tsx"
+          wrapperClassName="rounded-xl"
+          code={`'use client'
             
 import { Gauge } from '@suyalcinkaya/gauge'
 
@@ -27,7 +28,21 @@ export function Component(): JSX.Element {
     <Gauge value={23} />
   )
 }`}
-      />
+        />
+
+        <CodeBlock
+          highlightedLinesNumbers={[1]}
+          fileName="src/app/page.tsx"
+          wrapperClassName="rounded-xl"
+          code={`import { Component } from 'src/components/component'
+
+export default function Home(): JSX.Element {
+  return (
+    <Component />
+  )
+}`}
+        />
+      </div>
     </>
   )
 }

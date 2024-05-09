@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Gauge } from '@suyalcinkaya/gauge'
 import { toast } from 'sonner'
 import { LuCopy, LuCheck } from 'react-icons/lu'
@@ -20,23 +20,38 @@ import {
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
+import { ColorPicker } from '@/components/ui/color-picker'
+
+const initialGaugeConfig = {
+  value: 72,
+  size: '2xl',
+  gapPercent: 5,
+  strokeWidth: 10,
+  showValue: true,
+  showAnimation: true,
+  primary: 'hsl(212 100% 48%)',
+  secondary: 'hsl(0 0% 92%)',
+  variant: 'ascending' as 'ascending' | 'descending'
+}
 
 export const Playground = () => {
   const [copied, setCopied] = useState(false)
-  const [gaugeConfig, setGaugeConfig] = useState({
-    value: 72,
-    size: '2xl',
-    gapPercent: 5,
-    strokeWidth: 10,
-    showValue: true,
-    showAnimation: true,
-    variant: 'ascending' as const
-  })
+  const [gaugeConfig, setGaugeConfig] = useState(initialGaugeConfig)
+  const [primaryColor, setPrimaryColor] = useState(initialGaugeConfig.primary)
+  const [secondaryColor, setSecondaryColor] = useState(initialGaugeConfig.secondary)
+
+  useEffect(() => {
+    setGaugeConfig((prev) => ({ ...prev, primary: primaryColor }))
+  }, [primaryColor])
+
+  useEffect(() => {
+    setGaugeConfig((prev) => ({ ...prev, secondary: secondaryColor }))
+  }, [secondaryColor])
 
   const onCopy = () => {
     setCopied(true)
     navigator.clipboard.writeText(
-      `<Gauge value={${gaugeConfig.value}} ${typeof gaugeConfig.size === 'number' ? `size={${gaugeConfig.size}}` : `size="${gaugeConfig.size}"`} gapPercent={${gaugeConfig.gapPercent}} strokeWidth={${gaugeConfig.strokeWidth}} showValue={${gaugeConfig.showValue}} showAnimation={${gaugeConfig.showAnimation}} variant="${gaugeConfig.variant}" />`
+      `<Gauge value={${gaugeConfig.value}} ${typeof gaugeConfig.size === 'number' ? `size={${gaugeConfig.size}}` : `size="${gaugeConfig.size}"`} gapPercent={${gaugeConfig.gapPercent}} strokeWidth={${gaugeConfig.strokeWidth}} showValue={${gaugeConfig.showValue}} showAnimation={${gaugeConfig.showAnimation}} variant="${gaugeConfig.variant}" primary="${gaugeConfig.primary}" secondary="${gaugeConfig.secondary}" />`
     )
 
     toast.success('Copied', {
@@ -171,6 +186,24 @@ export const Playground = () => {
                       </SelectGroup>
                     </SelectContent>
                   </Select>
+                </div>
+                <div className="grid items-center gap-2 md:grid-cols-3 md:gap-4">
+                  <Label htmlFor="primary">Primary</Label>
+                  <ColorPicker
+                    id="primary"
+                    background={primaryColor}
+                    setBackground={setPrimaryColor}
+                    className="w-full md:w-[180px]"
+                  />
+                </div>
+                <div className="grid items-center gap-2 md:grid-cols-3 md:gap-4">
+                  <Label htmlFor="secondary">Secondary</Label>
+                  <ColorPicker
+                    id="secondary"
+                    background={secondaryColor}
+                    setBackground={setSecondaryColor}
+                    className="w-full md:w-[180px]"
+                  />
                 </div>
                 <div className="grid grid-cols-2 items-center gap-4 md:grid-cols-3">
                   <Label htmlFor="showValue">Show value</Label>
