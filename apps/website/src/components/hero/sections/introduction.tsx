@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { FaGithub } from 'react-icons/fa'
 
 import { Button } from '@/components/ui/button'
 import { playgroundSectionId } from '@/lib/constants'
@@ -18,6 +19,7 @@ export const Introduction = () => {
         </Button>
         <Button variant="secondary" asChild>
           <a href="https://github.com/suyalcinkaya/gauge" target="_blank" rel="noopener noreferrer">
+            <FaGithub className="mr-2" />
             GitHub
           </a>
         </Button>

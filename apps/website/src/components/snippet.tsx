@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { toast } from 'sonner'
-import { CopyIcon, CheckIcon } from 'lucide-react'
+import { LuCopy, LuCheck } from 'react-icons/lu'
 
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
@@ -40,7 +40,7 @@ export const Snippet: React.FC<SnippetProps> = ({ code, wrapperClassName }) => {
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
         <Button variant="ghost" size="icon" className="ml-2 size-7 shrink-0">
-          {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
+          {copied ? <LuCheck size={14} /> : <LuCopy size={14} />}
         </Button>
       </div>
     </div>

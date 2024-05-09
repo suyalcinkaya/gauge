@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { toast } from 'sonner'
 import { highlight } from 'sugar-high'
-import { CopyIcon, CheckIcon, ChevronDownIcon, ChevronRightIcon } from 'lucide-react'
+import { LuCopy, LuCheck, LuChevronDown, LuChevronRight } from 'react-icons/lu'
 
 import { Button } from '@/components/ui/button'
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
@@ -70,7 +70,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             'invisible absolute right-4 top-4 z-10 size-8 p-0 opacity-0 transition-opacity group-hover/code-block:visible group-hover/code-block:opacity-100'
           )}
         >
-          {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
+          {copied ? <LuCheck size={14} /> : <LuCopy size={14} />}
         </Button>
       </div>
     )
@@ -91,7 +91,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
                 className="flex cursor-pointer select-none items-center gap-2 bg-gray-50 px-4 py-3 text-sm text-gray-600"
                 onClick={() => setIsOpened(!isOpened)}
               >
-                {isOpened ? <ChevronDownIcon size={14} /> : <ChevronRightIcon size={14} />}
+                {isOpened ? <LuChevronDown size={14} /> : <LuChevronRight size={14} />}
                 {isOpened ? 'Hide code' : 'Show code'}
               </div>
               {isOpened && <Code />}

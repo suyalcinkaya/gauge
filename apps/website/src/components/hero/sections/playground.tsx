@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Gauge } from '@suyalcinkaya/gauge'
 import { toast } from 'sonner'
-import { CopyIcon, CheckIcon } from 'lucide-react'
+import { LuCopy, LuCheck } from 'react-icons/lu'
 
 import { CodeBlock } from '@/components/code-block'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -200,7 +200,7 @@ export const Playground = () => {
             </CardContent>
             <CardFooter className="px-4 pb-4 md:px-6 md:pb-6">
               <Button onClick={onCopy} disabled={copied} className="flex w-full items-center gap-1.5">
-                {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
+                {copied ? <LuCheck size={14} /> : <LuCopy size={14} />}
                 {copied ? 'Copied' : 'Copy'}
               </Button>
             </CardFooter>
