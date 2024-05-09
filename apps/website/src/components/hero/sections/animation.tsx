@@ -57,11 +57,9 @@ export const Animation = () => {
         value for the <code className="inline-code">ascending</code> variant, and from 100 to the value for the{' '}
         <code className="inline-code">descending</code> variant.
       </p>
-
       <Button onClick={playAnimation} disabled={isAnimationPlaying} className="mb-8">
         Replay animation
       </Button>
-
       <CodeBlock
         code={`import { Gauge } from '@suyalcinkaya/gauge'
 
