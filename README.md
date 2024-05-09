@@ -1,6 +1,6 @@
 ![screenshot](apps/website/public/og-image.png)
 
-# Gauge [![@suyalcinkaya/gauge minzip package size](https://img.shields.io/bundlephobia/minzip/@suyalcinkaya/gauge)](https://www.npmjs.com/package/@suyalcinkaya/gauge?activeTab=code) [![@suyalcinkaya/gauge package version](https://img.shields.io/npm/v/@suyalcinkaya/gauge.svg?colorB=green)](https://www.npmjs.com/package/@suyalcinkaya/gauge) ![GitHub License](https://img.shields.io/github/license/suyalcinkaya/gauge)
+# Gauge [![@suyalcinkaya/gauge minzip package size](https://img.shields.io/bundlephobia/minzip/@suyalcinkaya/gauge)](https://www.npmjs.com/package/@suyalcinkaya/gauge?activeTab=code) [![@suyalcinkaya/gauge package version](https://img.shields.io/npm/v/@suyalcinkaya/gauge.svg?colorB=green)](https://www.npmjs.com/package/@suyalcinkaya/gauge) ![@suyalcinkaya/gauge NPM Downloads](https://img.shields.io/npm/dm/%40suyalcinkaya%2Fgauge) ![@suyalcinkaya/gauge GitHub License](https://img.shields.io/github/license/suyalcinkaya/gauge)
 
 [Gauge](https://gauge.onur.dev/) is an aesthetic and customizable circular visual component for React.
 
@@ -53,7 +53,7 @@ You can also debug it with the website app locally. For instance; to start `apps
 pnpm dev
 ```
 
-Check localhost:3000 to see the website app.
+Check [localhost:3000](localhost:3000) to see the website app.
 
 ## Inspiration & Credits
 

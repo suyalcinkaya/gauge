@@ -9,6 +9,8 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    if: github.actor == github.repository_owner
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
