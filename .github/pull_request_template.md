@@ -5,6 +5,11 @@ Please provide a brief description of what this PR accomplishes.
 If applicable, you should then provide a more detailed description including screenshots (if appropriate) to benefit
 everyone.
 
+#### Type of project(s)
+
+- [ ] :package: `packages/gauge`
+- [ ] :sparkles: `apps/website`
+
 #### Type of change
 
 - [ ] :bug: Bug fix
