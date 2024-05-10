@@ -1,14 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Gauge } from '@suyalcinkaya/gauge'
-import { useInView } from 'react-intersection-observer'
 
 import { CodeBlock } from '@/components/code-block'
-
 import { Button } from '@/components/ui/button'
 
-const initialGauges = [
+const gauges = [
   { value: 18, showAnimation: true, showValue: true },
   { value: 18, showAnimation: true, showValue: true, variant: 'descending' as const },
   { value: 81, showAnimation: true, showValue: true },
@@ -16,48 +14,27 @@ const initialGauges = [
 ]
 
 export const Animation = () => {
-  const [gauges, setGauges] = useState(initialGauges)
   const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
-  const { ref, inView } = useInView({ threshold: 0, triggerOnce: true })
 
-  const playAnimation = () => {
+  const replayAnimation = () => {
     if (isAnimationPlaying) return
-
     setIsAnimationPlaying(true)
-    setGauges(
-      gauges.map((gauge) => ({
-        ...gauge,
-        value: gauge.variant === 'descending' ? 100 : 0,
-        showAnimation: false
-      }))
-    )
 
     setTimeout(() => {
-      setGauges(initialGauges)
-
-      setTimeout(() => {
-        // Animation transition duration is 1s
-        setIsAnimationPlaying(false)
-      }, 1000)
-    }, 500)
+      setIsAnimationPlaying(false)
+    }, 1000)
   }
-
-  // Play animation when the component is in view
-  useEffect(() => {
-    if (inView) {
-      playAnimation()
-    }
-  }, [inView])
 
   return (
     <>
       <h2>Animation</h2>
       <p className="subtitle">
-        On initial render, the <code className="inline-code">showAnimation</code> prop animates the Gauge from 0 to the
-        value for the <code className="inline-code">ascending</code> variant, and from 100 to the value for the{' '}
+        On initial render, the <code className="inline-code">showAnimation</code> prop animates the Gauge from 0 to the{' '}
+        <code className="inline-code">value</code> for the <code className="inline-code">ascending</code> variant, and
+        from 100 to the <code className="inline-code">value</code> for the{' '}
         <code className="inline-code">descending</code> variant.
       </p>
-      <Button onClick={playAnimation} disabled={isAnimationPlaying} className="mb-8">
+      <Button onClick={replayAnimation} disabled={isAnimationPlaying} className="mb-8">
         Replay animation
       </Button>
       <CodeBlock
@@ -74,9 +51,9 @@ export function Component(): JSX.Element {
   )
 }`}
         component={
-          <div className="flex items-center gap-8" ref={ref}>
+          <div className="flex items-center gap-8">
             {gauges.map((gauge, gaugeIndex) => (
-              <Gauge key={`gauge_${gaugeIndex}`} {...gauge} value={gauge.value} showAnimation={gauge.showAnimation} />
+              <Gauge key={`gauge_${isAnimationPlaying ? Math.random() : gaugeIndex}`} {...gauge} />
             ))}
           </div>
         }

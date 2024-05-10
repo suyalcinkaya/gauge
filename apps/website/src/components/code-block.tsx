@@ -13,6 +13,7 @@ interface CodeBlockProps {
   code?: string
   component?: React.ReactNode
   fileName?: string
+  fileIcon?: React.ReactNode
   highlightedLinesNumbers?: (1 | 6 | 7 | 8)[]
   showLineNumbers?: boolean
   wrapperClassName?: string
@@ -23,6 +24,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   code = '',
   component,
   fileName,
+  fileIcon,
   highlightedLinesNumbers,
   showLineNumbers = true,
   wrapperClassName,
@@ -78,7 +80,16 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <div className={cn('relative overflow-clip border', component ? 'rounded-xl' : 'rounded', wrapperClassName)}>
-      {fileName && <div className="border-b bg-gray-50 px-4 py-3 text-sm text-gray-600">{fileName}</div>}
+      {(fileIcon || fileName) && (
+        <div
+          className="flex items-center gap-2
+         border-b bg-gray-50 px-4 py-3 text-sm text-gray-600"
+        >
+          <span>{fileIcon}</span>
+          <span>{fileName}</span>
+        </div>
+      )}
+
       {component ? (
         <>
           <ScrollArea className="whitespace-nowrap">

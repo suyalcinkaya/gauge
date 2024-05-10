@@ -24,7 +24,7 @@
   }
 
   body {
-    -webkit-text-size-adjust: auto;
+    -webkit-text-size-adjust: 100%;
     @apply min-h-svh overflow-x-clip bg-gray-50 font-sans antialiased;
   }
 
@@ -33,11 +33,11 @@
   }
 
   pre {
-    @apply min-w-max bg-white py-5 pr-4 !text-[13px];
+    @apply min-w-max bg-white py-5 pr-4 text-[13px];
   }
 
   pre code {
-    @apply grid whitespace-pre break-normal text-left font-mono !text-[13px];
+    @apply grid whitespace-pre break-normal text-left font-mono text-[13px];
   }
 
   pre:is(.show-line-numbers) code {

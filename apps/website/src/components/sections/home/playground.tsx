@@ -37,21 +37,11 @@ const initialGaugeConfig = {
 export const Playground = () => {
   const [copied, setCopied] = useState(false)
   const [gaugeConfig, setGaugeConfig] = useState(initialGaugeConfig)
-  const [primaryColor, setPrimaryColor] = useState(initialGaugeConfig.primary)
-  const [secondaryColor, setSecondaryColor] = useState(initialGaugeConfig.secondary)
-
-  useEffect(() => {
-    setGaugeConfig((prev) => ({ ...prev, primary: primaryColor }))
-  }, [primaryColor])
-
-  useEffect(() => {
-    setGaugeConfig((prev) => ({ ...prev, secondary: secondaryColor }))
-  }, [secondaryColor])
 
   const onCopy = () => {
     setCopied(true)
     navigator.clipboard.writeText(
-      `<Gauge value={${gaugeConfig.value}} ${typeof gaugeConfig.size === 'number' ? `size={${gaugeConfig.size}}` : `size="${gaugeConfig.size}"`} gapPercent={${gaugeConfig.gapPercent}} strokeWidth={${gaugeConfig.strokeWidth}} showValue={${gaugeConfig.showValue}} showAnimation={${gaugeConfig.showAnimation}} variant="${gaugeConfig.variant}" primary="${gaugeConfig.primary}" secondary="${gaugeConfig.secondary}" />`
+      `<Gauge value={${gaugeConfig.value}} ${typeof gaugeConfig.size === 'number' ? `size={${gaugeConfig.size}}` : `size="${gaugeConfig.size}"`} gapPercent={${gaugeConfig.gapPercent}} strokeWidth={${gaugeConfig.strokeWidth}} showValue={${gaugeConfig.showValue}} showAnimation={${gaugeConfig.showAnimation}} variant="${gaugeConfig.variant}"${gaugeConfig.primary ? ` primary="${gaugeConfig.primary}"` : ''}${gaugeConfig.secondary ? ` secondary="${gaugeConfig.secondary}"` : ''} />`
     )
 
     toast.success('Copied', {
@@ -191,8 +181,8 @@ export const Playground = () => {
                   <Label htmlFor="primary">Primary</Label>
                   <ColorPicker
                     id="primary"
-                    background={primaryColor}
-                    setBackground={setPrimaryColor}
+                    value={initialGaugeConfig.primary}
+                    onChange={(color) => setGaugeConfig((prev) => ({ ...prev, primary: color }))}
                     className="w-full md:w-[180px]"
                   />
                 </div>
@@ -200,8 +190,8 @@ export const Playground = () => {
                   <Label htmlFor="secondary">Secondary</Label>
                   <ColorPicker
                     id="secondary"
-                    background={secondaryColor}
-                    setBackground={setSecondaryColor}
+                    value={initialGaugeConfig.secondary}
+                    onChange={(color) => setGaugeConfig((prev) => ({ ...prev, secondary: color }))}
                     className="w-full md:w-[180px]"
                   />
                 </div>

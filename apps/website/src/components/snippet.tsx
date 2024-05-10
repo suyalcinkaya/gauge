@@ -34,9 +34,7 @@ export const Snippet: React.FC<SnippetProps> = ({ code, wrapperClassName }) => {
     >
       <div className="flex w-full items-center justify-between overflow-hidden pr-2">
         <ScrollArea className="whitespace-nowrap">
-          <pre className='px-4 py-3 !text-xs before:select-none before:text-gray-500 before:content-["▲_~_"] sm:!text-sm'>
-            {code}
-          </pre>
+          <pre className='px-4 py-3 before:select-none before:text-gray-400 before:content-["▲_~_"]'>{code}</pre>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
         <Button variant="ghost" size="icon" className="ml-2 size-7 shrink-0">

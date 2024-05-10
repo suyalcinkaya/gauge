@@ -1,23 +1,27 @@
+import { FaReact } from 'react-icons/fa6'
+
 import { CodeBlock } from '@/components/code-block'
 import { Button } from '@/components/ui/button'
 
-export const ReactServerComponents = () => {
+export const ReactServerComponent = () => {
   return (
     <>
-      <h2>React Server Components</h2>
+      <h2>React Server Component?</h2>
       <p className="subtitle">
-        Gauge depends on state and effects (for now). So, if you are using server components, you need to add the&nbsp;
+        Not yet. Gauge depends on state and effects (for now). So, if you are using server components, you need to add
+        the <code className="inline-code">'use client'</code>{' '}
         <Button variant="link" size="link" asChild>
           <a href="https://react.dev/reference/rsc/use-client" target="_blank" rel="noopener noreferrer">
-            React <code className="inline-code">'use client'</code> directive
+            React directive
           </a>
-        </Button>
-        &nbsp;at the top of a file, above your imports.
+        </Button>{' '}
+        at the top of a file, above your imports.
       </p>
       <div className="flex flex-col gap-4">
         <CodeBlock
           highlightedLinesNumbers={[1]}
           fileName="src/components/component.tsx"
+          fileIcon={<FaReact />}
           wrapperClassName="rounded-xl"
           code={`'use client'
             
@@ -33,6 +37,7 @@ export function Component(): JSX.Element {
         <CodeBlock
           highlightedLinesNumbers={[1]}
           fileName="src/app/page.tsx"
+          fileIcon={<FaReact />}
           wrapperClassName="rounded-xl"
           code={`import { Component } from 'src/components/component'
 
