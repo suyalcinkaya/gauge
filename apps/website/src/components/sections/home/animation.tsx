@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
 import { Gauge } from '@suyalcinkaya/gauge'
+import { LuRotateCw } from 'react-icons/lu'
 
 import { CodeBlock } from '@/components/code-block'
 import { Button } from '@/components/ui/button'
+import { useReplayAnimation } from '@/hooks/use-replay-animation'
 
 const gauges = [
   { value: 18, showAnimation: true, showValue: true },
@@ -14,16 +15,7 @@ const gauges = [
 ]
 
 export const Animation = () => {
-  const [isAnimationPlaying, setIsAnimationPlaying] = useState(false)
-
-  const replayAnimation = () => {
-    if (isAnimationPlaying) return
-    setIsAnimationPlaying(true)
-
-    setTimeout(() => {
-      setIsAnimationPlaying(false)
-    }, 1000)
-  }
+  const { isAnimationPlaying, rerenderKey, replayAnimation } = useReplayAnimation()
 
   return (
     <>
@@ -34,7 +26,8 @@ export const Animation = () => {
         from 100 to the <code className="inline-code">value</code> for the{' '}
         <code className="inline-code">descending</code> variant.
       </p>
-      <Button onClick={replayAnimation} disabled={isAnimationPlaying} className="mb-8">
+      <Button onClick={replayAnimation} disabled={isAnimationPlaying} className="mb-8 gap-1.5">
+        <LuRotateCw size={14} />
         Replay animation
       </Button>
       <CodeBlock
@@ -53,7 +46,7 @@ export function Component(): JSX.Element {
         component={
           <div className="flex items-center gap-8">
             {gauges.map((gauge, gaugeIndex) => (
-              <Gauge key={`gauge_${isAnimationPlaying ? Math.random() : gaugeIndex}`} {...gauge} />
+              <Gauge key={`animation_gauge_${gaugeIndex}_${rerenderKey}`} {...gauge} />
             ))}
           </div>
         }

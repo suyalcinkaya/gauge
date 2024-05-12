@@ -30,33 +30,33 @@ const lightSolids = [
   '#fbcfe8' // pink
 ]
 
-export function ColorPicker({
-  id,
-  value,
-  onChange,
-  placeholder = 'Pick a color',
-  className
-}: {
-  id?: string
+interface ColorPickerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string
-  onChange: (color: string) => void
+  onColorChange: (color: string) => void
   placeholder?: string
-  className?: string
-}) {
+}
+
+export function ColorPicker({
+  value,
+  onColorChange,
+  placeholder = 'Pick a color',
+  className,
+  ...props
+}: ColorPickerProps) {
   const [color, setColor] = useState(value)
 
   useEffect(() => {
-    onChange(color)
+    onColorChange(color)
   }, [color])
 
   return (
     <Popover>
-      <PopoverTrigger asChild id={id}>
-        <Button variant="outline" className={cn('w-[220px] justify-start text-left font-normal', className)}>
+      <PopoverTrigger asChild {...props}>
+        <Button variant="outline" className={cn('w-[220px] justify-start px-3 py-2 text-left font-normal', className)}>
           <div className="flex w-full items-center gap-2">
             {color ? (
               <div
-                className="size-4 rounded !bg-cover !bg-center transition-colors duration-200"
+                className="size-4 rounded border !bg-cover !bg-center transition-colors duration-200"
                 style={{ background: color }}
               />
             ) : (
