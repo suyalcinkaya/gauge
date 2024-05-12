@@ -6,13 +6,14 @@ import { highlight } from 'sugar-high'
 import { LuCopy, LuCheck, LuChevronDown, LuChevronRight } from 'react-icons/lu'
 
 import { Button } from '@/components/ui/button'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { ScrollArea } from '@/components/scroll-area'
 import { cn } from '@/lib/utils'
 
 interface CodeBlockProps {
   code?: string
   component?: React.ReactNode
   fileName?: string
+  fileIcon?: React.ReactNode
   highlightedLinesNumbers?: (1 | 6 | 7 | 8)[]
   showLineNumbers?: boolean
   wrapperClassName?: string
@@ -23,6 +24,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   code = '',
   component,
   fileName,
+  fileIcon,
   highlightedLinesNumbers,
   showLineNumbers = true,
   wrapperClassName,
@@ -46,8 +48,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   const Code = () => {
     return (
       <div className="group/code-block relative cursor-copy" onClick={onCopy}>
-        <ScrollArea className="whitespace-nowrap">
-          <pre className={cn('overflow-y-clip', showLineNumbers ? 'show-line-numbers' : 'pl-4')}>
+        <ScrollArea>
+          <pre className={cn('px-4', showLineNumbers && 'show-line-numbers px-0')}>
             <code
               className={cn(
                 highlightedLinesNumbers?.includes(1) &&
@@ -62,7 +64,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
               dangerouslySetInnerHTML={{ __html: codeHTML }}
             />
           </pre>
-          <ScrollBar orientation="horizontal" />
         </ScrollArea>
         <Button
           variant="outline"
@@ -78,12 +79,20 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <div className={cn('relative overflow-clip border', component ? 'rounded-xl' : 'rounded', wrapperClassName)}>
-      {fileName && <div className="border-b bg-gray-50 px-4 py-3 text-sm text-gray-600">{fileName}</div>}
+      {(fileIcon || fileName) && (
+        <div
+          className="flex items-center gap-2
+         border-b bg-gray-50 px-4 py-3 text-sm text-gray-600"
+        >
+          <span>{fileIcon}</span>
+          <span>{fileName}</span>
+        </div>
+      )}
+
       {component ? (
         <>
-          <ScrollArea className="whitespace-nowrap">
-            <div className={cn('overflow-y-clip bg-white p-8', componentWrapperClassName)}>{component}</div>
-            <ScrollBar orientation="horizontal" />
+          <ScrollArea>
+            <div className={cn('bg-white p-8', componentWrapperClassName)}>{component}</div>
           </ScrollArea>
           {code && (
             <div>

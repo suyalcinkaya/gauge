@@ -53,7 +53,7 @@ You can also debug it with the website app locally. For instance; to start `apps
 pnpm dev
 ```
 
-Check [localhost:3000](localhost:3000) to see the website app.
+Check [localhost:3000](http://localhost:3000) to see the website app.
 
 ## Inspiration & Credits
 

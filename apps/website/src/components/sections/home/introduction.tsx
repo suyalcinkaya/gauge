@@ -8,7 +8,6 @@ export const Introduction = () => {
   return (
     <>
       <h1>Gauge</h1>
-      {/* <p className="subtitle">A circular visual for conveying a percentage.</p> */}
       <p className="subtitle">An aesthetic and customizable circular visual component for React.</p>
       <div className="flex items-center gap-4">
         <Button asChild>

@@ -5,7 +5,7 @@ import { toast } from 'sonner'
 import { LuCopy, LuCheck } from 'react-icons/lu'
 
 import { Button } from '@/components/ui/button'
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import { ScrollArea } from '@/components/scroll-area'
 import { cn } from '@/lib/utils'
 
 interface SnippetProps {
@@ -33,11 +33,8 @@ export const Snippet: React.FC<SnippetProps> = ({ code, wrapperClassName }) => {
       onClick={onCopy}
     >
       <div className="flex w-full items-center justify-between overflow-hidden pr-2">
-        <ScrollArea className="whitespace-nowrap">
-          <pre className='px-4 py-3 !text-xs before:select-none before:text-gray-500 before:content-["▲_~_"] sm:!text-sm'>
-            {code}
-          </pre>
-          <ScrollBar orientation="horizontal" />
+        <ScrollArea>
+          <pre className='px-4 py-3 before:select-none before:content-["▲_~_"]'>{code}</pre>
         </ScrollArea>
         <Button variant="ghost" size="icon" className="ml-2 size-7 shrink-0">
           {copied ? <LuCheck size={14} /> : <LuCopy size={14} />}

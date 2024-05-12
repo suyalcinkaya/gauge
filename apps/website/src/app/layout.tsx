@@ -6,6 +6,7 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata, Viewport } from 'next'
 
 import { Button } from '@/components/ui/button'
+import { Toaster } from '@/components/ui/sonner'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 
 export default function RootLayout({
@@ -47,6 +48,11 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
+        <Toaster
+          toastOptions={{
+            duration: 1500
+          }}
+        />
         <TailwindIndicator />
       </body>
       <Script

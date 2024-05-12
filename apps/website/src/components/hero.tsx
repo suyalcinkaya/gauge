@@ -1,16 +1,15 @@
 import { Section, type SectionProps } from '@/components/section'
-import { Introduction } from '@/components/hero/sections/introduction'
-import { Installation } from '@/components/hero/sections/installation'
-import { ReactServerComponents } from '@/components/hero/sections/react-server-components'
-import { Default } from '@/components/hero/sections/default'
-import { Label } from '@/components/hero/sections/label'
-import { Variant } from '@/components/hero/sections/variant'
-import { Animation } from '@/components/hero/sections/animation'
-import { DefaultColorScale } from '@/components/hero/sections/default-color-scale'
-import { CustomColorScale } from '@/components/hero/sections/custom-color-scale'
-import { CustomSecondaryColor } from '@/components/hero/sections/custom-secondary-color'
-import { ArcPriority } from '@/components/hero/sections/arc-priority'
-import { Playground } from '@/components/hero/sections/playground'
+import { Introduction } from '@/components/sections/home/introduction'
+import { Installation } from '@/components/sections/home/installation'
+import { Default } from '@/components/sections/home/default'
+import { Label } from '@/components/sections/home/label'
+import { Variant } from '@/components/sections/home/variant'
+import { Animation } from '@/components/sections/home/animation'
+import { DefaultColorScale } from '@/components/sections/home/default-color-scale'
+import { CustomColorScale } from '@/components/sections/home/custom-color-scale'
+import { CustomSecondaryColor } from '@/components/sections/home/custom-secondary-color'
+import { ArcPriority } from '@/components/sections/home/arc-priority'
+import { Playground } from '@/components/sections/home/playground'
 import { playgroundSectionId } from '@/lib/constants'
 
 const sections: SectionProps[] = [
@@ -20,9 +19,6 @@ const sections: SectionProps[] = [
   },
   {
     children: <Installation />
-  },
-  {
-    children: <ReactServerComponents />
   },
   {
     children: <Default />
