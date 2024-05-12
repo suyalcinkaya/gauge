@@ -5,7 +5,6 @@ import { Gauge } from '@suyalcinkaya/gauge'
 import { toast } from 'sonner'
 import { LuCopy, LuCheck, LuRotateCw } from 'react-icons/lu'
 
-import { CodeBlock } from '@/components/code-block'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import {
@@ -30,9 +29,9 @@ const initialGaugeConfig = {
   strokeWidth: 10,
   showValue: true,
   showAnimation: true,
-  primary: 'hsl(212 100% 48%)',
-  secondary: 'hsl(0 0% 92%)',
-  variant: 'ascending' as 'ascending' | 'descending'
+  primary: '',
+  secondary: '',
+  variant: 'ascending' as const
 }
 
 export const Playground = () => {
@@ -58,27 +57,19 @@ export const Playground = () => {
     <>
       <h2>Playground</h2>
       <p className="subtitle">Play with the configuration of the Gauge.</p>
-
       <div className="grid w-full gap-4 md:grid-cols-2">
         <Card className="flex flex-col">
           <CardContent className="flex h-full items-center justify-center p-4 md:p-6">
-            <CodeBlock
-              wrapperClassName="border-none"
-              component={
-                <div className="flex flex-col items-center justify-between gap-8">
-                  <div
-                    className="cursor-pointer"
-                    onClick={() => {
-                      setGaugeConfig((prev) => {
-                        return { ...prev, value: Math.random() * 100 }
-                      })
-                    }}
-                  >
-                    <Gauge key={`playground_gauge_${rerenderKey}`} {...gaugeConfig} />
-                  </div>
-                </div>
-              }
-            />
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                setGaugeConfig((prev) => {
+                  return { ...prev, value: Math.floor(Math.random() * 100) }
+                })
+              }}
+            >
+              <Gauge key={`playground_gauge_${rerenderKey}`} {...gaugeConfig} />
+            </div>
           </CardContent>
           <CardFooter className="px-4 pb-4 md:px-6 md:pb-6">
             <Button
@@ -204,7 +195,7 @@ export const Playground = () => {
                 <Label htmlFor="primary">Primary</Label>
                 <ColorPicker
                   id="primary"
-                  value={initialGaugeConfig.primary}
+                  value={gaugeConfig.primary}
                   onColorChange={(color) => setGaugeConfig((prev) => ({ ...prev, primary: color }))}
                   {...sharedFieldProps}
                   {...sharedClassNameProp}
@@ -214,7 +205,7 @@ export const Playground = () => {
                 <Label htmlFor="secondary">Secondary</Label>
                 <ColorPicker
                   id="secondary"
-                  value={initialGaugeConfig.secondary}
+                  value={gaugeConfig.secondary}
                   onColorChange={(color) => setGaugeConfig((prev) => ({ ...prev, secondary: color }))}
                   {...sharedFieldProps}
                   {...sharedClassNameProp}
