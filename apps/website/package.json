@@ -20,7 +20,7 @@
     "eslint": "8.45.0",
     "eslint-config-next": "14.2.3",
     "postcss": "8.4.26",
-    "prettier-plugin-tailwindcss": "^0.5.14",
+    "prettier-plugin-tailwindcss": "^0.6.0",
     "typescript": "5.2.2"
   },
   "dependencies": {
